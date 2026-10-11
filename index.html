@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="pt">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Emanuel Ramos Consultor</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Sora:wght@500;600;700&display=swap">
+<style>
+:root{
+  --navy:#12263F; --navy-2:#1B3657; --gold:#D4A656; --gold-ink:#8A6420;
+  --bg:#ECE9E2; --card:#FBFAF7; --ink:#12263F; --muted:#51607A; --line:#DDD8CC; --chip:#F1EDE4;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0A1522; --card:#101F33; --ink:#EEF1F5; --muted:#A9B5C6; --line:#243954; --chip:#172B45; --gold-ink:#D4A656;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0A1522; --card:#101F33; --ink:#EEF1F5; --muted:#A9B5C6; --line:#243954; --chip:#172B45; --gold-ink:#D4A656;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:'Manrope',system-ui,sans-serif;font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased}
+.wrap{max-width:480px;margin:0 auto;padding:16px 16px 40px}
+.card{background:var(--card);border-radius:24px;overflow:hidden;box-shadow:0 20px 50px -24px rgba(10,21,34,.45)}
+header{position:relative;background:var(--navy);color:#F6F4EF;padding:36px 24px 30px;text-align:center;overflow:hidden}
+header::before,header::after{content:"";position:absolute;border:1px solid rgba(212,166,86,.28);border-radius:50%}
+header::before{width:340px;height:340px;top:-190px;right:-130px}
+header::after{width:220px;height:220px;bottom:-150px;left:-90px}
+.avatar{position:relative;width:104px;height:104px;margin:0 auto 18px;border-radius:50%;border:2px solid var(--gold);display:flex;align-items:center;justify-content:center;background:var(--navy-2);font-family:'Sora',sans-serif;font-weight:600;font-size:36px;letter-spacing:1px;color:var(--gold)}
+.eyebrow{font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gold)}
+h1{margin:6px 0 8px;font-family:'Sora',sans-serif;font-weight:700;font-size:34px;line-height:1.1;letter-spacing:-.5px}
+.role{margin:0;font-size:16px;font-weight:500;color:#DCE3EC}
+.mode{display:inline-flex;gap:8px;align-items:center;margin-top:16px;padding:7px 14px;border:1px solid rgba(212,166,86,.5);border-radius:999px;font-size:13px;font-weight:600;color:#F6F4EF}
+.mode i{width:7px;height:7px;border-radius:50%;background:var(--gold)}
+.actions{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;padding:20px 20px 0}
+.act{display:flex;flex-direction:column;align-items:center;gap:6px;min-height:72px;padding:12px 6px;border:1px solid var(--line);border-radius:16px;background:var(--chip);color:var(--ink);text-decoration:none;font-size:13px;font-weight:700;transition:transform .15s,border-color .15s}
+.act:hover{transform:translateY(-2px);border-color:var(--gold-ink)}
+.act svg{width:22px;height:22px;stroke:var(--gold-ink);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.save{display:flex;align-items:center;justify-content:center;gap:10px;margin:12px 20px 0;min-height:52px;border-radius:16px;background:var(--navy);color:#F6F4EF;text-decoration:none;font-weight:700;font-size:15px;border:1px solid var(--navy-2)}
+.save:hover{background:var(--navy-2)}
+.save svg{width:20px;height:20px;stroke:var(--gold);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+section{padding:28px 20px 0}
+h2{margin:0 0 14px;display:flex;align-items:center;gap:12px;font-family:'Sora',sans-serif;font-size:13px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold-ink)}
+h2::after{content:"";flex:1;height:1px;background:var(--line)}
+.lead{margin:0;font-size:16px;color:var(--ink)}
+.mottos{display:grid;gap:10px;margin-top:16px}
+.motto{padding:14px 16px;border-radius:14px;background:var(--chip);font-family:'Sora',sans-serif;font-weight:600;font-size:15px;line-height:1.35}
+.motto span{display:block;font-family:'Manrope',sans-serif;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold-ink);margin-bottom:4px}
+details{border:1px solid var(--line);border-radius:16px;margin-bottom:10px;background:var(--card)}
+summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:14px;min-height:60px;padding:12px 16px;font-family:'Sora',sans-serif;font-weight:600;font-size:16px;line-height:1.3}
+summary::-webkit-details-marker{display:none}
+summary b{flex:none;width:30px;height:30px;border-radius:50%;background:var(--navy);color:var(--gold);font-size:13px;display:flex;align-items:center;justify-content:center}
+summary em{margin-left:auto;font-style:normal;font-size:22px;font-weight:400;color:var(--gold-ink);transition:transform .2s}
+details[open] summary em{transform:rotate(45deg)}
+details ul{margin:0;padding:0 16px 16px 60px;list-style:none;display:grid;gap:8px;color:var(--muted);font-size:15px}
+details li{position:relative}
+details li::before{content:"";position:absolute;left:-16px;top:.7em;width:6px;height:1px;background:var(--gold-ink)}
+.services{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.svc{padding:14px;border-radius:14px;background:var(--chip);font-weight:700;font-size:14px;line-height:1.35}
+.svc small{display:block;margin-top:4px;font-weight:500;font-size:13px;color:var(--muted)}
+.edu{list-style:none;margin:0;padding:0 0 0 18px;border-left:1px solid var(--line);display:grid;gap:16px}
+.edu li{position:relative;font-weight:600;font-size:15px;line-height:1.4}
+.edu li::before{content:"";position:absolute;left:-23px;top:.45em;width:9px;height:9px;border-radius:50%;background:var(--card);border:2px solid var(--gold-ink)}
+.edu small{display:block;font-weight:500;font-size:13px;color:var(--muted);margin-top:2px}
+.contact{display:grid;gap:10px}
+.row{display:flex;align-items:center;gap:14px;min-height:56px;padding:10px 16px;border:1px solid var(--line);border-radius:14px;color:var(--ink);text-decoration:none;font-weight:700;font-size:15px;overflow-wrap:anywhere}
+.row:hover{border-color:var(--gold-ink)}
+.row svg{flex:none;width:20px;height:20px;stroke:var(--gold-ink);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.row small{display:block;font-weight:500;font-size:12px;color:var(--muted)}
+footer{margin-top:28px;padding:22px 20px;background:var(--navy);color:#DCE3EC;text-align:center;font-size:13px}
+footer strong{display:block;font-family:'Sora',sans-serif;color:var(--gold);font-size:14px;letter-spacing:.5px;margin-bottom:2px}
+:focus-visible{outline:2px solid var(--gold-ink);outline-offset:2px}
+@media (max-width:360px){h1{font-size:29px}.services{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<main class="card">
+<header>
+  <div class="avatar" role="img" aria-label="Emanuel Ramos">ER</div>
+  <div class="eyebrow">Consultor</div>
+  <h1>Emanuel Ramos</h1>
+  <p class="role">Ética, Políticas Públicas e Desenvolvimento</p>
+  <div class="mode"><i></i>Consultoria presencial e online</div>
+</header>
+
+<nav class="actions" aria-label="Contacto rápido">
+  <a class="act" href="tel:+351935675287"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>Ligar</a>
+  <a class="act" href="https://wa.me/351935675287" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 21l1.6-4.6A8.5 8.5 0 1 1 8 19.7L3 21z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5"/></svg>WhatsApp</a>
+  <a class="act" href="mailto:emaramospb@gmail.com?subject=Pedido%20de%20consultoria"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>Email</a>
+</nav>
+<a class="save" id="save" download="Emanuel-Ramos.vcf" href="#"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11"/><path d="M7 11l5 5 5-5"/><path d="M5 20h14"/></svg>Guardar contacto</a>
+
+<section>
+  <h2>Apresentação</h2>
+  <p class="lead">Consultor para empresas, instituições públicas e organizações da sociedade civil, com formação avançada em ética, ciência política, estudos africanos e educação.</p>
+  <div class="mottos">
+    <div class="motto"><span>Lema</span>Conhecimento, Competência e Excelência</div>
+    <div class="motto"><span>Compromisso</span>Desenvolvimento Estratégico Sustentável</div>
+  </div>
+</section>
+
+<section>
+  <h2>Áreas de consultoria</h2>
+  <details open>
+    <summary><b>1</b>Ética, Política e Cidadania<em>+</em></summary>
+    <ul><li>Filosofia, Ética e Democracia</li><li>Política e Direitos Humanos</li><li>Política Pública e Ética Pública</li></ul>
+  </details>
+  <details>
+    <summary><b>2</b>Liderança e Pessoas<em>+</em></summary>
+    <ul><li>Liderança e Desenvolvimento</li><li>Liderança e Gestão de Projeto</li><li>Recursos Humanos (Pessoa)</li><li>Treinamento e Mentoria de Equipa</li><li>Gestão de Tempo e Produtividade</li><li>Mediação de Conflito e Unidade</li></ul>
+  </details>
+  <details>
+    <summary><b>3</b>Migração, África e Cooperação<em>+</em></summary>
+    <ul><li>Migração e Integração</li><li>África e Cooperação</li><li>Cultura e Sustentabilidade</li></ul>
+  </details>
+  <details>
+    <summary><b>4</b>Educação, Família e Juventude<em>+</em></summary>
+    <ul><li>Educação, Formação e Cidadania</li><li>Família e Parentalidade</li><li>Juventude e Desenvolvimento</li></ul>
+  </details>
+</section>
+
+<section>
+  <h2>Formas de colaboração</h2>
+  <div class="services">
+    <div class="svc">Consultoria<small>Diagnóstico e aconselhamento estratégico</small></div>
+    <div class="svc">Formação<small>Ações à medida para equipas</small></div>
+    <div class="svc">Mentoria<small>Acompanhamento de líderes e equipas</small></div>
+    <div class="svc">Palestras<small>Conferências e sessões temáticas</small></div>
+  </div>
+</section>
+
+<section>
+  <h2>Formação académica</h2>
+  <ul class="edu">
+    <li>Curso de Doutoramento em Ética, Democracia e Desenvolvimento Societais<small>Faculdade de Letras da Universidade de Lisboa</small></li>
+    <li>Doutorando em Ciência Política<small>ISCSP, Universidade de Lisboa</small></li>
+    <li>Mestrado em Estudos Africanos<small>ISCSP, Universidade de Lisboa</small></li>
+    <li>Mestrado em Filosofia da Educação, Cidadania e Direitos Humanos<small>Universidade de Cabo Verde</small></li>
+    <li>Pós-graduação em Ética e Filosofia Política<small>Universidade de Cabo Verde</small></li>
+    <li>Pós-graduação em História do Direito da Família<small>Faculdade de Direito da Universidade de Lisboa</small></li>
+    <li>Pós-graduação em Globalização e Desafios de Desenvolvimento<small>Universidade de Évora</small></li>
+    <li>Curso de Especialização em Migrações, Desafios da Integração<small>IPPS-ISCTE</small></li>
+    <li>Licenciatura em Ensino de Filosofia<small>Universidade de Cabo Verde</small></li>
+  </ul>
+</section>
+
+<section>
+  <h2>Contacto</h2>
+  <div class="contact">
+    <a class="row" href="tel:+351935675287"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg><span><small>Telemóvel e WhatsApp</small>+351 935 675 287</span></a>
+    <a class="row" href="mailto:emaramospb@gmail.com"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg><span><small>Email</small>emaramospb@gmail.com</span></a>
+  </div>
+</section>
+
+<footer><strong>Emanuel Ramos</strong>Consultoria presencial e online</footer>
+</main>
+</div>
+<script>
+(function(){
+  var v=["BEGIN:VCARD","VERSION:3.0","N:Ramos;Emanuel;;;","FN:Emanuel Ramos","TITLE:Consultor - \u00c9tica, Pol\u00edticas P\u00fablicas e Desenvolvimento","TEL;TYPE=CELL:+351935675287","EMAIL;TYPE=INTERNET:emaramospb@gmail.com","NOTE:Consultoria presencial e online","END:VCARD"].join("\r\n");
+  document.getElementById("save").href="data:text/vcard;charset=utf-8,"+encodeURIComponent(v);
+})();
+</script>
+</body>
+</html>
